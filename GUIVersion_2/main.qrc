@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/main_main.png</file>
+        <file>img/main_config.png</file>
+        <file>img/main_company.png</file>
+        <file>img/fontawesome-webfont.ttf</file>
+    </qresource>
+</RCC>
