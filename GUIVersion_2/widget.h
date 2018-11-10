@@ -5,6 +5,7 @@
 #include <QMenu>
 #include "config_mainwindow.h"
 #include "sontcpserver.h"
+#include "qcustomplot.h"
 
 class SonTcpServer;
 class config_mainwindow;

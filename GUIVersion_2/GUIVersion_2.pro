@@ -7,7 +7,8 @@
 QT       += core gui network
 CONFIG += c++11
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+
 
 TARGET = GUIVersion_2
 TEMPLATE = app
@@ -31,7 +32,8 @@ SOURCES += \
     appinit.cpp \
     config_mainwindow.cpp \
     sontcpserver.cpp \
-    socketthread.cpp
+    socketthread.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
         widget.h \
@@ -39,7 +41,8 @@ HEADERS += \
     appinit.h \
     config_mainwindow.h \
     sontcpserver.h \
-    socketthread.h
+    socketthread.h \
+    qcustomplot.h
 
 FORMS += \
         widget.ui \
