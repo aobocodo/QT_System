@@ -202,6 +202,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -240,6 +246,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -275,6 +287,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -310,6 +328,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -345,6 +369,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_9">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -423,6 +453,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -458,6 +494,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_6">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -493,6 +535,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_7">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -528,6 +576,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_8">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -563,6 +617,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_10">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -598,6 +658,12 @@ QGroupBox::title {
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEdit_11">
+                     <property name="minimumSize">
+                      <size>
+                       <width>130</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="maximumSize">
                       <size>
                        <width>130</width>
@@ -645,28 +711,39 @@ QGroupBox::title {
              </property>
              <item>
               <widget class="QTabWidget" name="tabWidget">
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
                <widget class="QWidget" name="tab">
                 <attribute name="title">
-                 <string>Tab 1</string>
+                 <string>信噪比</string>
                 </attribute>
                </widget>
                <widget class="QWidget" name="tab_2">
                 <attribute name="title">
-                 <string>Tab 2</string>
+                 <string>接收功率</string>
                 </attribute>
                </widget>
               </widget>
              </item>
              <item>
               <widget class="QTabWidget" name="tabWidget_2">
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
                <widget class="QWidget" name="tab_3">
                 <attribute name="title">
-                 <string>Tab 1</string>
+                 <string>Mac接收速率</string>
                 </attribute>
                </widget>
                <widget class="QWidget" name="tab_4">
                 <attribute name="title">
-                 <string>Tab 2</string>
+                 <string>误帧率</string>
+                </attribute>
+               </widget>
+               <widget class="QWidget" name="tab_5">
+                <attribute name="title">
+                 <string>丢帧率</string>
                 </attribute>
                </widget>
               </widget>
@@ -716,7 +793,43 @@ QGroupBox::title {
               <number>11</number>
              </property>
              <item>
-              <widget class="QTableWidget" name="tableWidget"/>
+              <widget class="QTableWidget" name="tableWidget">
+               <column>
+                <property name="text">
+                 <string>用户</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>MAC地址</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>信噪比</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>误帧率</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>丢帧率</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>信号功率</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>接收速率</string>
+                </property>
+               </column>
+              </widget>
              </item>
             </layout>
            </widget>

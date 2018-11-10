@@ -17,6 +17,27 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(socket, SIGNAL(connected()), this, SLOT(connected()));
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 
+    //no edit
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    //插入行，item居中
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    QTableWidgetItem *element = new QTableWidgetItem("ue1");
+    element->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,element);
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,new QTableWidgetItem("ue2"));
+
+    //根据ue id删除行
+    QList<QTableWidgetItem *> itemList;
+    for(int i =0; i<ui->tableWidget->rowCount();i++){
+        itemList<<ui->tableWidget->item(i,0);
+    }
+    foreach(QTableWidgetItem *item, itemList){
+        if(item->text()=="ue2"){
+            ui->tableWidget->removeRow(item->row());
+        }
+    }
 }
 
 MainWindow::~MainWindow()
