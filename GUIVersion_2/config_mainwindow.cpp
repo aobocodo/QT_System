@@ -11,8 +11,8 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
     ui(new Ui::config_mainwindow)
 {
     ui->setupUi(this);
-    ui->menubar->show();
     server1 = server;
+    //在tablewidget中添加comboBox
     for(int i=0; i<3;i++){
         QComboBox *combox_state = new QComboBox();
         combox_state->addItem("工作");
@@ -53,10 +53,12 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
         combox_pw->addItem("40");
         ui->tableWidget->setCellWidget(i,6,(QWidget*)combox_pw);
     }
+    //隔行变色(没用上)
     ui->tableWidget->setAlternatingRowColors(true);
-    //ui->tableWidget->horizontalHeader()->setObjectName("hHeader");
+    //ui->tableWidget->horizontalHeader()->setObjectName("hHeader");水平方向的header属性无法设置
+    //设置垂直方向上的header属性
     ui->tableWidget->verticalHeader()->setObjectName("vHeader");
-    ui->pushButton->setProperty("btn","white");
+    ui->pushButton->setProperty("btn","white");//设置属性，与qss文件中的样式对应
 
 }
 
@@ -65,6 +67,7 @@ config_mainwindow::~config_mainwindow()
     delete ui;
 }
 
+//窗口关闭事件
 void config_mainwindow::closeEvent(QCloseEvent *)
 {
     emit close_cg();
@@ -72,28 +75,19 @@ void config_mainwindow::closeEvent(QCloseEvent *)
 
 void config_mainwindow::on_pushButton_clicked()
 {
-
+    //发送信号给主界面
     QString head="<font color=red>手动配置参数：</font>";
     emit emit_to_main(head);
     print_to_main();
-
-        //结束
-        /*
-        for(int m=0; m<7; m++){
-            qDebug()<<"item is "<<QString::fromStdString(data[m]);
-        }
-        */
-
-/*   测试server是否正确传递
-    if (!server1->socketList.isEmpty())
-        qDebug() << server1->socketList.at(0);
-        */
 }
 
+//发送配置信息给主界面
 void config_mainwindow::print_to_main()
 {
+    //发送信号给主界面
     QString head="ID                      状态             频点              带宽        发射增益    接收增益    功率";
     emit emit_to_main(head);
+    //遍历表中所有配置信息&发送
     for(int i=0; i<3; i++){
         QString data;
         QTableWidgetItem *itab = ui->tableWidget->item(i,0);
@@ -124,6 +118,8 @@ void config_mainwindow::print_to_main()
 
     }
 }
+
+//判断基站状态
 bool config_mainwindow::check_on(QString check)
 {
     if (check.contains("工作"))
@@ -132,6 +128,7 @@ bool config_mainwindow::check_on(QString check)
         return false;
 }
 
+//点击覆盖最优
 void config_mainwindow::on_cg_btn_cover_clicked()
 {
     QComboBox* combo_value=(QComboBox*)ui->tableWidget->cellWidget(1,1);
@@ -143,6 +140,7 @@ void config_mainwindow::on_cg_btn_cover_clicked()
     print_to_main();
 }
 
+//点击性能最优
 void config_mainwindow::on_cg_btn_power_clicked()
 {
     QString head="<font color=red>[性能最优]策略参数：</font>";
@@ -150,8 +148,7 @@ void config_mainwindow::on_cg_btn_power_clicked()
     print_to_main();
 }
 
-
-
+//点击吞吐量最优
 void config_mainwindow::on_cg_btn_output_clicked()
 {
     QString head="<font color=red>[吞吐量最优]策略参数：</font>";

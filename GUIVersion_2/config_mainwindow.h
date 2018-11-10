@@ -20,6 +20,7 @@ public:
     explicit config_mainwindow(SonTcpServer *server, QWidget *parent = 0);
     ~config_mainwindow();
     bool check_on(QString check); //用来判断on和off按钮
+    void print_to_main();
 signals:
     void close_cg();
 
@@ -32,7 +33,7 @@ protected:
     void closeEvent(QCloseEvent *);
 private slots:
     void on_pushButton_clicked();
-    void print_to_main();
+
     void on_cg_btn_cover_clicked();
     void on_cg_btn_power_clicked();
     void on_cg_btn_output_clicked();
