@@ -26,8 +26,26 @@ void SonTcpServer::incomingConnection(qintptr socketDescriptor)
      /*字典用于连接显示值与描述符
     socketDescriptor为key,eNB序号为value*/
      countNum++;
-     QString str = QString("eNB%1").arg(countNum);
-     socketMap[socketDescriptor] = str;
+     //QString str = QString("eNB%1").arg(countNum);
+     /*固定描述符与eNB*/
+     QString str;
+     switch (socketDescriptor) {
+     case 21:
+         str = QString("eNB1");
+         socketMap[socketDescriptor] = str;
+         break;
+     case 23:
+         str = QString("eNB2");
+         socketMap[socketDescriptor] = str;
+         break;
+     case 26:
+         str = QString("eNB3");
+         socketMap[socketDescriptor] = str;
+         break;
+     default:
+         break;
+     }
+     //socketMap[socketDescriptor] = str;
      /*发送信号，用于在屏幕显示连接*/
      emit emit_displayConn(socketDescriptor);
      /*查看list及map情况*/
