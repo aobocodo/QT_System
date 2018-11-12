@@ -146,26 +146,30 @@ margin:1px 1px 2px 1px;
 background-color:rgba(238,0,0,128);
 }
 
-/*QRadioButton::indicator{
-width:15px;
-height:15px;
+QRadioButton{
+color:black;
+}
+
+QRadioButton::indicator{
+width:17px;
+height:17px;
 }
 
 QRadioButton::indicator::unchecked{
-image:url(:/qss/psblack/radiobutton_unchecked.png);
+image:url(:/img/uncheck.png);
 }
 
-QRadioButton::indicator::unchecked:disabled{
+/*QRadioButton::indicator::unchecked:disabled{
 image:url(:/qss/psblack/radiobutton_unchecked_disable.png);
-}
+}*/
 
 QRadioButton::indicator::checked{
-image:url(:/qss/psblack/radiobutton_checked.png);
+image:url(:/img/check.png);
 }
 
-QRadioButton::indicator::checked:disabled{
+/*QRadioButton::indicator::checked:disabled{
 image:url(:/qss/psblack/radiobutton_checked_disable.png);
-}
+}*/
 
 QGroupBox::indicator,QTreeWidget::indicator,QListWidget::indicator{
 padding:0px -3px 0px 3px;
@@ -174,7 +178,7 @@ padding:0px -3px 0px 3px;
 QCheckBox::indicator,QGroupBox::indicator,QTreeWidget::indicator,QListWidget::indicator{
 width:13px;
 height:13px;
-}*/
+}
 
 QCheckBox::indicator:unchecked,QGroupBox::indicator:unchecked,QTreeWidget::indicator:unchecked,QListWidget::indicator:unchecked{
 image:url(:/qss/psblack/checkbox_unchecked.png);
@@ -732,7 +736,7 @@ font-family:"Microsoft YaHei";
 color:#000000;
 }
 
-QPushButton[btn="white"],QPushButton#cg_btn_cover,QPushButton#cg_btn_power,QPushButton#cg_btn_output{
+QPushButton[btn="white"],QPushButton#cg_btn_cover,QPushButton#cg_btn_power,QPushButton#cg_btn_output,QPushButton#opt_btn{
 /*background: #2A5CAA;*/
 background-color:#FFFFFF;
 border: 2px solid #000000;
@@ -742,20 +746,21 @@ font-size: 16px;
 font-weight: 400;
 }
 
-QPushButton[btn="white"]:hover,QPushButton#cg_btn_cover:hover,QPushButton#cg_btn_power:hover,QPushButton#cg_btn_output:hover{
+QPushButton[btn="white"]:hover,QPushButton#cg_btn_cover:hover,QPushButton#cg_btn_power:hover,QPushButton#cg_btn_output:hover,QPushButton#opt_btn:hover{
 background-color: #2CA7F8;
 border: 1px solid #2CA7F8;
 color: #FFFFFF;
 }
 
-QPushButton[btn="white"]:pressed,QPushButton#cg_btn_cover:pressed,QPushButton#cg_btn_power:pressed,QPushButton#cg_btn_output:pressed {
+QPushButton[btn="white"]:pressed,QPushButton#cg_btn_cover:pressed,QPushButton#cg_btn_power:pressed,QPushButton#cg_btn_output:pressed,QPushButton#opt_btn:pressed{
     background-color: #007DCF;
     border: 1px solid #007DCF;
 }
 
-QLabel#label_3,QLabel#label_4,QLabel#label_5,QLabel#label_6{
+QLabel#label_3,QLabel#label_4,QLabel#label_5,QLabel#label_6,QLabel#bsone_lab1,QLabel#bsone_lab2,QLabel#bstwo_lab1,QLabel#bstwo_lab2,QLabel#bsthree_lab1,QLabel#bsthree_lab2{
     color:#000000;
 }
+
 
 
 *:disabled{

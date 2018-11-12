@@ -7,6 +7,11 @@
 
 
 int cg_i=0;//标识符，判断config界面是否打开
+int opt_i=0;//标识符
+int heal_i=0;//标识符
+int bsone_i=0;//标识符
+int bstwo_i=0;//标识符
+int bsthree_i=0;//标识符
 
 
 Widget::Widget(QWidget *parent) :
@@ -62,6 +67,11 @@ void Widget::initForm(){
     //connect点击菜单后对应的事件
     connect(menu_two,SIGNAL(triggered(QAction*)),this,SLOT(menu_two_trigged(QAction*)));
 
+    //为辅助功能加界面
+    menu_three = new QMenu();
+    menu_three->addAction("看日志");
+    connect(menu_three,SIGNAL(triggered(QAction*)),this,SLOT(menu_three_trigged(QAction*)));
+
     //调用IconHelper库去添加图标
     IconHelper::Instance()->setIcon(ui->labIco, QChar(0xf099), 30);
     IconHelper::Instance()->setIcon(ui->btn_min, QChar(0xf068));
@@ -85,6 +95,7 @@ void Widget::initForm(){
     ui->btnBs->setIconSize(QSize(42, 42));
     ui->btnMg->setMenu(menu_one);
     ui->btnBs->setMenu(menu_two);
+    ui->btnConfig->setMenu(menu_three);
 
     //画xmap图
     // configure axis rect:
@@ -194,9 +205,43 @@ void Widget::menu_one_trigged(QAction *action)
         //connect关闭窗口对应的事件
         connect(cg_frame,SIGNAL(close_cg()),this,SLOT(cg_close()));
         cg_frame->move(((wd-600)/2),(ht-400)/2);//窗口居中
+        cg_frame->setFixedSize(600,400);//去除最大化按钮
         cg_frame->show();
         connect(cg_frame, SIGNAL(emit_confeNb(QString, qintptr)), this, SLOT(transferData(QString, qintptr)));
         connect(cg_frame,SIGNAL(emit_to_main(QString)),this,SLOT(to_main(QString)));
+    }
+    //自优化&窗口没打开
+    if(name=="自优化"&&opt_i==0){
+        //消息输出框显示反馈
+        ui->textBrowser->append(QString("<font color=black>准备自优化</font>"));
+        //标识符设为1，表示窗口打开
+        opt_i=1;
+        opt_frame = new optimize_mainwindow(this);
+        opt_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        opt_frame->setWindowTitle("自优化");
+        connect(opt_frame,SIGNAL(close_opt()),this,SLOT(opt_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        opt_frame->move(((wd-600)/2),(ht-400)/2);//窗口居中
+        opt_frame->setFixedSize(600,400);//去除最大化按钮
+        opt_frame->show();
+    }
+    if(name=="自治愈"&&heal_i==0){
+        //消息输出框显示反馈
+        ui->textBrowser->append(QString("<font color=black>准备自治愈</font>"));
+        //标识符设为1，表示窗口打开
+        heal_i=1;
+        heal_frame = new heal_mainwindow(this);
+        heal_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        heal_frame->setWindowTitle("自治愈");
+        connect(heal_frame,SIGNAL(close_heal()),this,SLOT(heal_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        heal_frame->move(((wd-600)/2),(ht-400)/2);//窗口居中
+        heal_frame->setFixedSize(600,400);//去除最大化按钮
+        heal_frame->show();
     }
 }
 
@@ -206,12 +251,94 @@ void Widget::cg_close()
     cg_i=0;
 }
 
+void Widget::opt_close()
+{
+    opt_i=0;
+}
+
+void Widget::heal_close()
+{
+    heal_i=0;
+}
+
 //点击配置基站的菜单
 void Widget::menu_two_trigged(QAction *action)
 {
-    action->text();
     qDebug()<<"hello "<<action->text();
+    QString name = action->text();
+    if(name=="基站一"&&bsone_i==0){
+        //消息输出框显示反馈
+        ui->textBrowser->append(QString("<font color=black>设置基站一</font>"));
+        //标识符设为1，表示窗口打开
+        bsone_i=1;
+        bsone_frame = new bsone_mainwindow(this);
+        bsone_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        bsone_frame->setWindowTitle("基站一");
+        connect(bsone_frame,SIGNAL(close_bsone()),this,SLOT(bsone_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        bsone_frame->move(((wd-400)/2),(ht-200)/2);//窗口居中
+        bsone_frame->setFixedSize(400,200);//去除最大化按钮
+        bsone_frame->show();
+    }
+    if(name=="基站二"&&bstwo_i==0){
+        //消息输出框显示反馈
+        ui->textBrowser->append(QString("<font color=black>设置基站二</font>"));
+        //标识符设为1，表示窗口打开
+        bstwo_i=1;
+        bstwo_frame = new bstwo_mainwindow(this);
+        bstwo_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        bstwo_frame->setWindowTitle("基站二");
+        connect(bstwo_frame,SIGNAL(close_bstwo()),this,SLOT(bstwo_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        bstwo_frame->move(((wd-400)/2),(ht-200)/2);//窗口居中
+        bstwo_frame->setFixedSize(400,200);//去除最大化按钮
+        bstwo_frame->show();
+    }
+    if(name=="基站三"&&bsthree_i==0){
+        //消息输出框显示反馈
+        ui->textBrowser->append(QString("<font color=black>设置基站三</font>"));
+        //标识符设为1，表示窗口打开
+        bsthree_i=1;
+        bsthree_frame = new bsthree_mainwindow(this);
+        bsthree_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        bsthree_frame->setWindowTitle("基站三");
+        connect(bsthree_frame,SIGNAL(close_bsthree()),this,SLOT(bsthree_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        bsthree_frame->move(((wd-400)/2),(ht-200)/2);//窗口居中
+        bsthree_frame->setFixedSize(400,200);//去除最大化按钮
+        bsthree_frame->show();
+
+    }
+
 }
+
+void Widget::bsone_close()
+{
+    bsone_i=0;
+}
+
+void Widget::bstwo_close()
+{
+    bstwo_i=0;
+}
+
+void Widget::bsthree_close()
+{
+    bsthree_i=0;
+}
+
+void Widget::menu_three_trigged(QAction *action)
+{
+    qDebug()<<"hello "<<action->text();
+    QString name = action->text();
+}
+
 
 //点击最大化按钮
 void Widget::on_btn_max_clicked()

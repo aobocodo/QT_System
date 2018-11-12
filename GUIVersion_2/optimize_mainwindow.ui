@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>optimize_mainwindow</class>
+ <widget class="QMainWindow" name="optimize_mainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>5</number>
+    </property>
+    <property name="leftMargin">
+     <number>5</number>
+    </property>
+    <property name="rightMargin">
+     <number>5</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="styleSheet">
+          <string notr="true">QGroupBox {
+			font-weight: bold;
+			font-size:16px;
+            border-color: #242424;
+            border-width: 1px;
+            border-style: solid;
+            margin-top: 0.5ex;
+        }
+QGroupBox::title {
+			color:blue;
+			
+           subcontrol-origin: margin;
+            subcontrol-position: top left;
+            left: 10px;
+            margin-left: 2px;
+            padding: 0  0px;
+        }</string>
+         </property>
+         <property name="title">
+          <string>探测策略</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QWidget" name="widget" native="true">
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>50</height>
+             </size>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="spacing">
+              <number>30</number>
+             </property>
+             <property name="leftMargin">
+              <number>9</number>
+             </property>
+             <item>
+              <widget class="QComboBox" name="comboBox">
+               <property name="styleSheet">
+                <string notr="true">
+</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>全部基站</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>基站一</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>基站二</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>基站三</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_2">
+               <item>
+                <property name="text">
+                 <string>AL1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>AL2</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>AL3</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="styleSheet">
+             <string notr="true">QGroupBox {
+			font-weight:normal;
+			border-color: #DCDCDC;
+        }</string>
+            </property>
+            <property name="title">
+             <string>消息输出框</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>13</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QTextBrowser" name="textBrowser">
+               <property name="styleSheet">
+                <string notr="true">QTextBrowser{
+	border:0px;
+}</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="styleSheet">
+          <string notr="true">QGroupBox {
+			font-weight: bold;
+			font-size:16px;
+            border-color: #242424;
+            border-width: 1px;
+            border-style: solid;
+            margin-top: 0.5ex;
+        }
+QGroupBox::title {
+			color:blue;
+			
+           subcontrol-origin: margin;
+            subcontrol-position: top left;
+            left: 10px;
+            margin-left: 2px;
+            padding: 0  0px;
+        }</string>
+         </property>
+         <property name="title">
+          <string>优化策略</string>
+         </property>
+         <widget class="QWidget" name="widget_2" native="true">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>60</y>
+            <width>70</width>
+            <height>99</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <item>
+            <widget class="QRadioButton" name="radioButton">
+             <property name="text">
+              <string>AL1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_2">
+             <property name="text">
+              <string>AL2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_3">
+             <property name="text">
+              <string>AL3</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="opt_btn">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>210</y>
+            <width>90</width>
+            <height>30</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>运行</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -33,7 +33,12 @@ SOURCES += \
     config_mainwindow.cpp \
     sontcpserver.cpp \
     socketthread.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    optimize_mainwindow.cpp \
+    heal_mainwindow.cpp \
+    bsone_mainwindow.cpp \
+    bstwo_mainwindow.cpp \
+    bsthree_mainwindow.cpp
 
 HEADERS += \
         widget.h \
@@ -42,11 +47,21 @@ HEADERS += \
     config_mainwindow.h \
     sontcpserver.h \
     socketthread.h \
-    qcustomplot.h
+    qcustomplot.h \
+    optimize_mainwindow.h \
+    heal_mainwindow.h \
+    bsone_mainwindow.h \
+    bstwo_mainwindow.h \
+    bsthree_mainwindow.h
 
 FORMS += \
         widget.ui \
-    config_mainwindow.ui
+    config_mainwindow.ui \
+    optimize_mainwindow.ui \
+    heal_mainwindow.ui \
+    bsone_mainwindow.ui \
+    bstwo_mainwindow.ui \
+    bsthree_mainwindow.ui
 
 RESOURCES += \
     main.qrc \

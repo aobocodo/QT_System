@@ -4,5 +4,7 @@
         <file>img/main_config.png</file>
         <file>img/main_company.png</file>
         <file>img/fontawesome-webfont.ttf</file>
+        <file>img/uncheck.png</file>
+        <file>img/check.png</file>
     </qresource>
 </RCC>
