@@ -12,6 +12,8 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
 {
     ui->setupUi(this);
     server1 = server;
+    //no edit
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     //在tablewidget中添加comboBox
     for(int i=0; i<3;i++){
         QComboBox *combox_state = new QComboBox();
@@ -21,36 +23,36 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
     }
     for(int i=0; i<3;i++){
         QComboBox *combox_point = new QComboBox();
-        combox_point->addItem("2.66");
-        combox_point->addItem("2.36");
+        combox_point->addItem("2.66MHz");
+        combox_point->addItem("2.36MHz");
         ui->tableWidget->setCellWidget(i,2,(QWidget*)combox_point);
     }
     for(int i=0; i<3;i++){
         QComboBox *combox_bw = new QComboBox();
-        combox_bw->addItem("5.00");
-        combox_bw->addItem("10.0");
-        combox_bw->addItem("20.0");
+        combox_bw->addItem("5.00M");
+        combox_bw->addItem("10.0M");
+        combox_bw->addItem("20.0M");
         ui->tableWidget->setCellWidget(i,3,(QWidget*)combox_bw);
     }
     for(int i=0; i<3;i++){
         QComboBox *combox_tx = new QComboBox();
-        combox_tx->addItem("95");
-        combox_tx->addItem("105");
-        combox_tx->addItem("115");
+        combox_tx->addItem("95.00dB");
+        combox_tx->addItem("105.0dB");
+        combox_tx->addItem("115.0dB");
         ui->tableWidget->setCellWidget(i,4,(QWidget*)combox_tx);
     }
     for(int i=0; i<3;i++){
         QComboBox *combox_rx = new QComboBox();
-        combox_rx->addItem("90");
-        combox_rx->addItem("100");
-        combox_rx->addItem("110");
+        combox_rx->addItem("90.00dB");
+        combox_rx->addItem("100.0dB");
+        combox_rx->addItem("110.0dB");
         ui->tableWidget->setCellWidget(i,5,(QWidget*)combox_rx);
     }
     for(int i=0; i<3;i++){
         QComboBox *combox_pw = new QComboBox();
-        combox_pw->addItem("20");
-        combox_pw->addItem("30");
-        combox_pw->addItem("40");
+        combox_pw->addItem("20dBm");
+        combox_pw->addItem("30dBm");
+        combox_pw->addItem("40dBm");
         ui->tableWidget->setCellWidget(i,6,(QWidget*)combox_pw);
     }
     //隔行变色(没用上)
@@ -76,7 +78,7 @@ void config_mainwindow::closeEvent(QCloseEvent *)
 void config_mainwindow::on_pushButton_clicked()
 {
     //发送信号给主界面
-    QString head="<font color=red>手动配置参数：</font>";
+    QString head=show_data()+"<font color=red>手动配置参数：</font>";
     emit emit_to_main(head);
     print_to_main();
 }
@@ -85,7 +87,7 @@ void config_mainwindow::on_pushButton_clicked()
 void config_mainwindow::print_to_main()
 {
     //发送信号给主界面
-    QString head="ID                      状态             频点              带宽        发射增益    接收增益    功率";
+    QString head="ID                      状态                 频点                     带宽               发射增益             接收增益               功率";
     emit emit_to_main(head);
     //遍历表中所有配置信息&发送
     for(int i=0; i<3; i++){
@@ -119,6 +121,14 @@ void config_mainwindow::print_to_main()
     }
 }
 
+QString config_mainwindow::show_data()
+{
+    QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
+    QString str = time.toString("yyyy-MM-dd hh:mm:ss"); //设置显示格式
+    QString data = "["+str+"]";
+    return data;
+}
+
 //判断基站状态
 bool config_mainwindow::check_on(QString check)
 {
@@ -134,8 +144,8 @@ void config_mainwindow::on_cg_btn_cover_clicked()
     QComboBox* combo_value=(QComboBox*)ui->tableWidget->cellWidget(1,1);
     combo_value->setCurrentIndex(combo_value->findText("待机"));
     QComboBox* combo_value_1=(QComboBox*)ui->tableWidget->cellWidget(1,3);
-    combo_value_1->setCurrentIndex(combo_value_1->findText("10.0"));
-    QString head="<font color=red>[覆盖最优]策略参数：</font>";
+    combo_value_1->setCurrentIndex(combo_value_1->findText("10.0M"));
+    QString head=show_data()+"<font color=red>[覆盖最优]策略参数：</font>";
     emit emit_to_main(head);
     print_to_main();
 }
@@ -143,7 +153,7 @@ void config_mainwindow::on_cg_btn_cover_clicked()
 //点击性能最优
 void config_mainwindow::on_cg_btn_power_clicked()
 {
-    QString head="<font color=red>[性能最优]策略参数：</font>";
+    QString head=show_data()+"<font color=red>[性能最优]策略参数：</font>";
     emit emit_to_main(head);
     print_to_main();
 }
@@ -151,7 +161,7 @@ void config_mainwindow::on_cg_btn_power_clicked()
 //点击吞吐量最优
 void config_mainwindow::on_cg_btn_output_clicked()
 {
-    QString head="<font color=red>[吞吐量最优]策略参数：</font>";
+    QString head=show_data()+"<font color=red>[吞吐量最优]策略参数：</font>";
     emit emit_to_main(head);
     print_to_main();
 }

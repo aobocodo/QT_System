@@ -486,7 +486,7 @@ QGroupBox::title {
                 <item>
                  <widget class="QLabel" name="label_6">
                   <property name="text">
-                   <string>SINR</string>
+                   <string>平均SINR</string>
                   </property>
                  </widget>
                 </item>

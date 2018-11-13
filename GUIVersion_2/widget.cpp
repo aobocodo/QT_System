@@ -4,6 +4,7 @@
 #include <QDesktopWidget>
 #include <QPushButton>
 #include <QDebug>
+#include <QDateTime>
 
 
 int cg_i=0;//标识符，判断config界面是否打开
@@ -184,6 +185,14 @@ void Widget::initForm(){
 
 }
 
+QString Widget::show_data()
+{
+    QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
+    QString str = time.toString("yyyy-MM-dd hh:mm:ss"); //设置显示格式
+    QString data = "["+str+"]";
+    return data;
+}
+
 //点击管理方案的菜单
 void Widget::menu_one_trigged(QAction *action)
 {
@@ -191,8 +200,10 @@ void Widget::menu_one_trigged(QAction *action)
     QString name = action->text();
     //自配置&窗口没打开
     if(name=="自配置"&&cg_i==0){
+        QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
+        QString str = time.toString("yyyy-MM-dd hh:mm:ss"); //设置显示格式
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>准备配置基站</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>准备配置基站</font>"));
         //标识符设为1，表示窗口打开
         cg_i=1;
         QDesktopWidget *desk=QApplication::desktop();
@@ -213,7 +224,7 @@ void Widget::menu_one_trigged(QAction *action)
     //自优化&窗口没打开
     if(name=="自优化"&&opt_i==0){
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>准备自优化</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>准备自优化</font>"));
         //标识符设为1，表示窗口打开
         opt_i=1;
         opt_frame = new optimize_mainwindow(this);
@@ -229,7 +240,7 @@ void Widget::menu_one_trigged(QAction *action)
     }
     if(name=="自治愈"&&heal_i==0){
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>准备自治愈</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>准备自治愈</font>"));
         //标识符设为1，表示窗口打开
         heal_i=1;
         heal_frame = new heal_mainwindow(this);
@@ -268,7 +279,7 @@ void Widget::menu_two_trigged(QAction *action)
     QString name = action->text();
     if(name=="基站一"&&bsone_i==0){
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>设置基站一</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>设置基站一</font>"));
         //标识符设为1，表示窗口打开
         bsone_i=1;
         bsone_frame = new bsone_mainwindow(this);
@@ -284,7 +295,7 @@ void Widget::menu_two_trigged(QAction *action)
     }
     if(name=="基站二"&&bstwo_i==0){
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>设置基站二</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>设置基站二</font>"));
         //标识符设为1，表示窗口打开
         bstwo_i=1;
         bstwo_frame = new bstwo_mainwindow(this);
@@ -300,7 +311,7 @@ void Widget::menu_two_trigged(QAction *action)
     }
     if(name=="基站三"&&bsthree_i==0){
         //消息输出框显示反馈
-        ui->textBrowser->append(QString("<font color=black>设置基站三</font>"));
+        ui->textBrowser->append(QString(show_data()+"<font color=black>设置基站三</font>"));
         //标识符设为1，表示窗口打开
         bsthree_i=1;
         bsthree_frame = new bsthree_mainwindow(this);
@@ -384,11 +395,11 @@ void Widget::transferData(QString data, qintptr id)
 
 void Widget::displayDisconnected(qintptr id)
 {
-    ui->textBrowser->append(QString("<font color=red>%1 断开</font>").arg(server->socketMap.value(id)));
+    ui->textBrowser->append(QString(show_data()+"<font color=red>%1 断开</font>").arg(server->socketMap.value(id)));
 }
 
 
 void Widget::displayConnected(qintptr id)
 {
-    ui->textBrowser->append(QString("<font color=red>%1 连接</font>").arg(server->socketMap.value(id)));
+    ui->textBrowser->append(QString(show_data()+"<font color=red>%1 连接</font>").arg(server->socketMap.value(id)));
 }

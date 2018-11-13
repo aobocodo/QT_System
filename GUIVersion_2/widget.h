@@ -47,10 +47,11 @@ private:
 //    zyx新增
     SonTcpServer* server;
     qintptr current_id;
+    void initForm();
+    QString show_data();
 signals:
     void emit_socketData(QString , qintptr);
 private slots:
-    void initForm();
     void menu_one_trigged(QAction* action);
     void cg_close();
     void opt_close();

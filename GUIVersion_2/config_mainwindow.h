@@ -21,6 +21,7 @@ public:
     ~config_mainwindow();
     bool check_on(QString check); //用来判断on和off按钮
     void print_to_main();
+    QString show_data();
 signals:
     void close_cg();
 
