@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QDateTime>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -47,27 +48,30 @@ MainWindow::~MainWindow()
 void MainWindow::connected()
 {
     qDebug() << "连接上了";
+    ui->eNB_one_output->append(show_data()+"已连接到服务器!");
 }
 void MainWindow::readyRead()
 {
     QString recvStr,confStr;
     QByteArray recvByte;
-    qint8 transP, recvP;
-    double centerF, bandWidth;
+    //qint8 transP, recvP;
+    //double centerF, bandWidth;
+    QString transP, recvP, centerF, bandWidth;
     recvByte = socket->readAll();
     recvStr = recvByte;
     qDebug() << recvStr;
     //切割字符串，取出配置部分，并用逗号替换空格，并移除字符串两端的空白符
     confStr = recvStr.section("              ", 2, 6).replace("              ", ",").trimmed();
     qDebug() << confStr;
-    centerF = confStr.section(",",0,0).toDouble();
-    bandWidth = confStr.section(",",1,1).toDouble();
-    transP = confStr.section(",",2,2).toInt();
-    recvP = confStr.section(",",3,3).toInt();
-    ui->lineEdit_3->setText(QString::number(bandWidth));
-    ui->lineEdit_5->setText(QString::number(transP));
-    ui->lineEdit_4->setText(QString::number(centerF));
-    ui->lineEdit_9->setText(QString::number(recvP));
+    centerF = confStr.section(",",0,0);
+    bandWidth = confStr.section(",",1,1);
+    transP = confStr.section(",",2,2);
+    recvP = confStr.section(",",3,3);
+    ui->lineEdit_3->setText(bandWidth);
+    ui->lineEdit_5->setText(transP);
+    ui->lineEdit_4->setText(centerF);
+    ui->lineEdit_9->setText(recvP);
+    ui->eNB_one_output->append(show_data()+"配置成功！");
 }
 
 
@@ -88,4 +92,12 @@ QString MainWindow::getHostMacAddress()
         }
     }
     return strMacAddr;
+}
+
+QString MainWindow::show_data()
+{
+    QDateTime time = QDateTime::currentDateTime();//获取系统现在的时间
+    QString str = time.toString("yyyy-MM-dd hh:mm:ss"); //设置显示格式
+    QString data = "["+str+"]";
+    return data;
 }

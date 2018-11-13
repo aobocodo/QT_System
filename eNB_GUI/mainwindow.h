@@ -19,6 +19,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QString getHostMacAddress();
+    QString show_data();
 
 private:
     Ui::MainWindow *ui;

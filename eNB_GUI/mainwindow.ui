@@ -204,13 +204,13 @@ QGroupBox::title {
                     <widget class="QLineEdit" name="lineEdit">
                      <property name="minimumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>0</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -248,13 +248,13 @@ QGroupBox::title {
                     <widget class="QLineEdit" name="lineEdit_3">
                      <property name="minimumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>0</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -289,13 +289,13 @@ QGroupBox::title {
                     <widget class="QLineEdit" name="lineEdit_4">
                      <property name="minimumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>0</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -330,13 +330,13 @@ QGroupBox::title {
                     <widget class="QLineEdit" name="lineEdit_5">
                      <property name="minimumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>0</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -371,13 +371,13 @@ QGroupBox::title {
                     <widget class="QLineEdit" name="lineEdit_9">
                      <property name="minimumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>0</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
-                       <width>130</width>
+                       <width>140</width>
                        <height>16777215</height>
                       </size>
                      </property>
@@ -861,7 +861,7 @@ QGroupBox::title {
               <number>11</number>
              </property>
              <item>
-              <widget class="QTextBrowser" name="textBrowser_2"/>
+              <widget class="QTextBrowser" name="eNB_one_output"/>
              </item>
             </layout>
            </widget>
