@@ -19,6 +19,7 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
+
     ui->setupUi(this);
     this->initForm();//画第一层界面
 
@@ -70,7 +71,8 @@ void Widget::initForm(){
 
     //为辅助功能加界面
     menu_three = new QMenu();
-    menu_three->addAction("看日志");
+    menu_three->addAction(tr("查阅日志"));
+    menu_three->setProperty("menu","center");
     connect(menu_three,SIGNAL(triggered(QAction*)),this,SLOT(menu_three_trigged(QAction*)));
 
     //调用IconHelper库去添加图标

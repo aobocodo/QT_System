@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     }
 
     Widget w;
+    w.setWindowTitle("服务器端");
     QDesktopWidget *desk=QApplication::desktop();
     int wd=desk->width();
     int ht=desk->height();

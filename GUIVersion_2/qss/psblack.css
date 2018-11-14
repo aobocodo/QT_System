@@ -263,8 +263,13 @@ margin:0px;
 }
 
 QMenu::item{
-padding:3px 20px;
+padding:3px 20px;/*内边距，第一个为item之间的距离，第二个为item和两边的距离*/
 width:43px;
+}
+
+QMenu[menu="center"]::item{
+padding:3px 13px;/*内边距，第一个为item之间的距离，第二个为item和两边的距离,内边距和width存在奇怪的联系*/
+width:58px;
 }
 
 QMenu::right-arrow{

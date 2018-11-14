@@ -13,7 +13,13 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
     ui->setupUi(this);
     server1 = server;
     //no edit
-    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //let first column can not edit
+    for(int i =0; i<3;i++){
+        QTableWidgetItem *itab = ui->tableWidget->item(i,0);
+        itab->setFlags(itab->flags() & (~Qt::ItemIsEditable));
+    }
+    ui->tableWidget->setColumnWidth(7, 130);
     //在tablewidget中添加comboBox
     for(int i=0; i<3;i++){
         QComboBox *combox_state = new QComboBox();
@@ -87,7 +93,7 @@ void config_mainwindow::on_pushButton_clicked()
 void config_mainwindow::print_to_main()
 {
     //发送信号给主界面
-    QString head="ID                      状态                 频点                     带宽               发射增益             接收增益               功率";
+    QString head="ID                      状态                 频点                     带宽               发射增益             接收增益               功率                         PRB分配";
     emit emit_to_main(head);
     //遍历表中所有配置信息&发送
     for(int i=0; i<3; i++){
@@ -95,10 +101,13 @@ void config_mainwindow::print_to_main()
         QTableWidgetItem *itab = ui->tableWidget->item(i,0);
         QString itabtext = itab->text();
         data = itabtext+":  ";
-        for(int j=1; j<7; j++){
+        for(int j=1; j<7; j++){        
             QComboBox* combo=(QComboBox*)ui->tableWidget->cellWidget(i,j);
             data=data+"            "+combo->currentText()+"  ";
         }
+        QTableWidgetItem *prb = ui->tableWidget->item(i,7);
+        QString prbtext = prb->text();
+        data= data+"            "+prbtext;
         emit emit_to_main(data);
         if (!check_on(data))
         {
