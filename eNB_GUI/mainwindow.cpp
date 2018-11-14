@@ -26,6 +26,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QTableWidgetItem *element = new QTableWidgetItem("ue1");
     element->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,element);
+
+
+    //插入ue2的行
     ui->tableWidget->insertRow(ui->tableWidget->rowCount());
     ui->tableWidget->setItem(ui->tableWidget->rowCount()-1,0,new QTableWidgetItem("ue2"));
 
@@ -56,21 +59,23 @@ void MainWindow::readyRead()
     QByteArray recvByte;
     //qint8 transP, recvP;
     //double centerF, bandWidth;
-    QString transP, recvP, centerF, bandWidth;
+    QString transP, recvP, centerF, bandWidth, rbAlloc;
     recvByte = socket->readAll();
     recvStr = recvByte;
     qDebug() << recvStr;
     //切割字符串，取出配置部分，并用逗号替换空格，并移除字符串两端的空白符
-    confStr = recvStr.section("              ", 2, 6).replace("              ", ",").trimmed();
+    confStr = recvStr.section("              ", 2, 7).replace("              ", ",").trimmed();
     qDebug() << confStr;
     centerF = confStr.section(",",0,0);
     bandWidth = confStr.section(",",1,1);
     transP = confStr.section(",",2,2);
     recvP = confStr.section(",",3,3);
+    rbAlloc = confStr.section(",",5,5);
     ui->lineEdit_3->setText(bandWidth);
     ui->lineEdit_5->setText(transP);
     ui->lineEdit_4->setText(centerF);
-    ui->lineEdit_9->setText(recvP);
+    ui->lineEdit_9->setText(rbAlloc);
+    ui->lineEdit_2->setText(recvP);
     ui->eNB_one_output->append(show_data()+"配置成功！");
 }
 
