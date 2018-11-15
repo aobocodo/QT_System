@@ -762,7 +762,7 @@ QPushButton[btn="white"]:pressed,QPushButton#cg_btn_cover:pressed,QPushButton#cg
     border: 1px solid #007DCF;
 }
 
-QLabel#label_3,QLabel#label_4,QLabel#label_5,QLabel#label_6,QLabel#bsone_lab1,QLabel#bsone_lab2,QLabel#bstwo_lab1,QLabel#bstwo_lab2,QLabel#bsthree_lab1,QLabel#bsthree_lab2{
+QLabel#label_3,QLabel#label_4,QLabel#label_5,QLabel#label_6,QLabel#bsone_lab1,QLabel#bsone_lab2,QLabel#bstwo_lab1,QLabel#bstwo_lab2,QLabel#bsthree_lab1,QLabel#bsthree_lab2,QLabel#heal_lab,QLabel#heal_lab_2{
     color:#000000;
 }
 

@@ -9,6 +9,7 @@
 #include "bsone_mainwindow.h"
 #include "bstwo_mainwindow.h"
 #include "bsthree_mainwindow.h"
+#include "log_mainwindow.h"
 #include "sontcpserver.h"
 #include "qcustomplot.h"
 
@@ -19,6 +20,7 @@ class heal_mainwindow;
 class bsone_mainwindow;
 class bstwo_mainwindow;
 class bsthree_mainwindow;
+class log_mainwindow;
 
 namespace Ui {
 class Widget;
@@ -38,6 +40,7 @@ public:
     bsone_mainwindow *bsone_frame;
     bstwo_mainwindow *bstwo_frame;
     bsthree_mainwindow *bsthree_frame;
+    log_mainwindow *log_frame;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
@@ -61,6 +64,7 @@ private slots:
     void bstwo_close();
     void bsthree_close();
     void menu_three_trigged(QAction* action);
+    void log_close();
     void on_btn_max_clicked();
     void on_btn_min_clicked();
     void on_btn_close_clicked();

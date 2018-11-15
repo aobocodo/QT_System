@@ -13,6 +13,7 @@ int heal_i=0;//标识符
 int bsone_i=0;//标识符
 int bstwo_i=0;//标识符
 int bsthree_i=0;//标识符
+int log_i=0;//标识符
 
 
 Widget::Widget(QWidget *parent) :
@@ -105,8 +106,8 @@ void Widget::initForm(){
     QCustomPlot *customPlot=ui->xmap_wid;
     customPlot->setInteractions(QCP::iRangeDrag|QCP::iRangeZoom); // this will also allow rescaling the color scale by dragging/zooming
     customPlot->axisRect()->setupFullAxesBox(true);
-    customPlot->xAxis->setLabel("x");
-    customPlot->yAxis->setLabel("y");
+    //customPlot->xAxis->setLabel("x");
+    //customPlot->yAxis->setLabel("y");
 
     //设置xmap图size
     // set up the QCPColorMap:
@@ -158,7 +159,7 @@ void Widget::initForm(){
      // the gradient, see the documentation of QCPColorGradient for what's possible.
 
      // rescale the data dimension (color) such that all data points lie in the span visualized by the color gradient:
-     colorMap->rescaleDataRange();
+     colorMap->rescaleDataRange(1);
 
      // make sure the axis rect and color scale synchronize their bottom and top margins (so they line up):
      QCPMarginGroup *marginGroup = new QCPMarginGroup(customPlot);
@@ -252,8 +253,8 @@ void Widget::menu_one_trigged(QAction *action)
         QDesktopWidget *desk=QApplication::desktop();
         int wd=desk->width();
         int ht=desk->height();
-        heal_frame->move(((wd-600)/2),(ht-400)/2);//窗口居中
-        heal_frame->setFixedSize(600,400);//去除最大化按钮
+        heal_frame->move(((wd-400)/2),(ht-200)/2);//窗口居中
+        heal_frame->setFixedSize(400,200);//去除最大化按钮
         heal_frame->show();
     }
 }
@@ -350,6 +351,24 @@ void Widget::menu_three_trigged(QAction *action)
 {
     qDebug()<<"hello "<<action->text();
     QString name = action->text();
+    if(name=="查阅日志"&&log_i==0){
+        log_i=1;
+        log_frame = new log_mainwindow(this);
+        log_frame->setProperty("config","white");//设置属性，与qss文件中的样式对应
+        log_frame->setWindowTitle("查阅日志");
+        connect(log_frame,SIGNAL(close_log()),this,SLOT(log_close()));
+        QDesktopWidget *desk=QApplication::desktop();
+        int wd=desk->width();
+        int ht=desk->height();
+        log_frame->move(((wd-600)/2),(ht-400)/2);//窗口居中
+        log_frame->setFixedSize(600,400);//去除最大化按钮
+        log_frame->show();
+    }
+}
+
+void Widget::log_close()
+{
+    log_i=0;
 }
 
 

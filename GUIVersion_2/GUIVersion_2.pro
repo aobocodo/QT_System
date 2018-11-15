@@ -38,7 +38,8 @@ SOURCES += \
     heal_mainwindow.cpp \
     bsone_mainwindow.cpp \
     bstwo_mainwindow.cpp \
-    bsthree_mainwindow.cpp
+    bsthree_mainwindow.cpp \
+    log_mainwindow.cpp
 
 HEADERS += \
         widget.h \
@@ -52,7 +53,8 @@ HEADERS += \
     heal_mainwindow.h \
     bsone_mainwindow.h \
     bstwo_mainwindow.h \
-    bsthree_mainwindow.h
+    bsthree_mainwindow.h \
+    log_mainwindow.h
 
 FORMS += \
         widget.ui \
@@ -61,7 +63,8 @@ FORMS += \
     heal_mainwindow.ui \
     bsone_mainwindow.ui \
     bstwo_mainwindow.ui \
-    bsthree_mainwindow.ui
+    bsthree_mainwindow.ui \
+    log_mainwindow.ui
 
 RESOURCES += \
     main.qrc \
