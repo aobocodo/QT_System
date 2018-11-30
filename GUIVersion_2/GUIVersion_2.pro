@@ -69,3 +69,5 @@ FORMS += \
 RESOURCES += \
     main.qrc \
     qss.qrc
+
+

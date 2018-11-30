@@ -22,6 +22,9 @@ private:
     Ui::bsone_mainwindow *ui;
 protected:
     void closeEvent(QCloseEvent *);
+private slots:
+    void on_pushButton_clicked();
+    void on_bsone_btn_clicked();
 };
 
 #endif // BSONE_MAINWINDOW_H

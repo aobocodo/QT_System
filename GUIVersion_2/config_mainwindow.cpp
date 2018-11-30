@@ -19,6 +19,7 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
         QTableWidgetItem *itab = ui->tableWidget->item(i,0);
         itab->setFlags(itab->flags() & (~Qt::ItemIsEditable));
     }
+    //调整行的宽度
     ui->tableWidget->setColumnWidth(7, 130);
     //在tablewidget中添加comboBox
     for(int i=0; i<3;i++){
@@ -40,6 +41,7 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
         combox_bw->addItem("20.0M");
         ui->tableWidget->setCellWidget(i,3,(QWidget*)combox_bw);
     }
+    /*原本用于显示发射增益 接收增益 功率
     for(int i=0; i<3;i++){
         QComboBox *combox_tx = new QComboBox();
         combox_tx->addItem("95.00dB");
@@ -61,6 +63,7 @@ config_mainwindow::config_mainwindow(SonTcpServer *server, QWidget *parent) :
         combox_pw->addItem("40dBm");
         ui->tableWidget->setCellWidget(i,6,(QWidget*)combox_pw);
     }
+    */
     //隔行变色(没用上)
     ui->tableWidget->setAlternatingRowColors(true);
     //ui->tableWidget->horizontalHeader()->setObjectName("hHeader");水平方向的header属性无法设置
@@ -93,7 +96,7 @@ void config_mainwindow::on_pushButton_clicked()
 void config_mainwindow::print_to_main()
 {
     //发送信号给主界面
-    QString head="ID                      状态                 频点                     带宽               发射增益             接收增益               功率                         PRB分配";
+    QString head="ID                      状态                 频点                     带宽               发射增益           接收增益              功率                      PRB分配";
     emit emit_to_main(head);
     //遍历表中所有配置信息&发送
     for(int i=0; i<3; i++){
@@ -101,13 +104,17 @@ void config_mainwindow::print_to_main()
         QTableWidgetItem *itab = ui->tableWidget->item(i,0);
         QString itabtext = itab->text();
         data = itabtext+":  ";
-        for(int j=1; j<7; j++){        
+        /*获得 状态 频点 带宽*/
+        for(int j=1; j<4; j++){
             QComboBox* combo=(QComboBox*)ui->tableWidget->cellWidget(i,j);
             data=data+"            "+combo->currentText()+"  ";
         }
-        QTableWidgetItem *prb = ui->tableWidget->item(i,7);
-        QString prbtext = prb->text();
-        data= data+"            "+prbtext;
+        /*获得发射增益 接收增益 功率*/
+        for(int k=4; k<8; k++){
+            QTableWidgetItem *prb = ui->tableWidget->item(i,k);
+            QString prbtext = prb->text();
+            data= data+"            "+prbtext;
+        }
         emit emit_to_main(data);
         if (!check_on(data))
         {

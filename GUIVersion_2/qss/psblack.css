@@ -401,17 +401,17 @@ max-width:12px;
 }
 
 QScrollBar::handle:vertical{
-background:#484848;
+background:#2A5CAA;
 min-height:50px;
 border-radius:6px;
 }
 
 QScrollBar::handle:vertical:hover{
-background:#242424;
+background:#484848;
 }
 
 QScrollBar::handle:vertical:pressed{
-background:#242424;
+background:#484848;
 }
 
 QScrollBar::add-page:vertical{
@@ -632,6 +632,7 @@ background:none;
 }
 
 QColorDialog QPushButton,QFileDialog QPushButton{
+
 min-width:80px;
 }
 
@@ -766,6 +767,17 @@ QLabel#label_3,QLabel#label_4,QLabel#label_5,QLabel#label_6,QLabel#bsone_lab1,QL
     color:#000000;
 }
 
+QFileDialog{
+    background-color: #FFFFFF;
+}
+
+QMessageBox{
+    background-color: #FFFFFF;
+}
+
+QMessageBox QLabel {
+    color: #000000;
+}
 
 
 *:disabled{

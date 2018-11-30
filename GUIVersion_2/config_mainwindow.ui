@@ -109,6 +109,30 @@
         <string/>
        </property>
       </item>
+      <item row="0" column="4">
+       <property name="text">
+        <string>100.0dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="0" column="5">
+       <property name="text">
+        <string>95.00dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="0" column="6">
+       <property name="text">
+        <string>20dBm</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
       <item row="0" column="7">
        <property name="text">
         <string>0111010011101</string>
@@ -125,6 +149,30 @@
         <set>AlignCenter</set>
        </property>
       </item>
+      <item row="1" column="4">
+       <property name="text">
+        <string>100.0dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="1" column="5">
+       <property name="text">
+        <string>95.00dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="1" column="6">
+       <property name="text">
+        <string>20dBm</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
       <item row="1" column="7">
        <property name="text">
         <string>0111010011101</string>
@@ -136,6 +184,30 @@
       <item row="2" column="0">
        <property name="text">
         <string>eNB3</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="2" column="4">
+       <property name="text">
+        <string>100.0dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="2" column="5">
+       <property name="text">
+        <string>95.00dB</string>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </item>
+      <item row="2" column="6">
+       <property name="text">
+        <string>20dBm</string>
        </property>
        <property name="textAlignment">
         <set>AlignCenter</set>
